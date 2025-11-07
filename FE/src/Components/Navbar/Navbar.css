@@ -1,0 +1,245 @@
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 7%;
+  background-color: white;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.logo {
+  width: 20rem;
+  cursor: pointer;
+}
+
+.navbar ul {
+  padding: 4px 25px;
+  border-radius: 30px;
+  border: 1px solid;
+  box-shadow: 0px 0px 20px #8d1414;
+  background: linear-gradient(to bottom right, #f10000 25%, #000000 100%);
+  margin-top: 15px;
+  margin-right: 5%;
+  display: flex;
+  transition: all 0.3s ease;
+}
+
+.nav-bottom li {
+  list-style: none;
+  align-content: center;
+  text-align: center;
+}
+
+.href {
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px 20px;
+  font-size: 20px;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  transition: background-color 0.3s ease;
+}
+
+.href:hover {
+  background-color: rgba(255, 185, 98, 0.6);
+}
+
+.href.active {
+  background-color: rgba(255, 255, 255, 0.3);
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.href:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.login {
+  background-color: #8d1414;
+  border-radius: 5px;
+  padding: 13px 20px;
+  margin-top: 15px;
+  margin-right: 5%;
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+  border: none;
+  box-shadow: 0px 0px 20px #a34b08;
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+}
+
+.login:hover {
+  color: rgb(115, 6, 122);
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(115, 6, 122);
+}
+
+.login:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(141, 20, 20, 0.5);
+}
+
+.nav-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #8d1414;
+  background: none;
+  border: none;
+  padding: 10px;
+}
+
+.hamburger:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(141, 20, 20, 0.5);
+}
+
+/* Desain Responsif */
+@media (max-width: 1200px) {
+  .logo {
+    width: 16rem;
+  }
+
+  .href {
+    font-size: 18px;
+    margin: 8px 16px;
+    padding: 8px 16px;
+  }
+
+  .login {
+    font-size: 18px;
+    padding: 10px 16px;
+    margin-right: 3%;
+  }
+}
+
+@media (max-width: 992px) {
+  .logo {
+    width: 14rem;
+  }
+
+  .href {
+    font-size: 16px;
+    margin: 6px 12px;
+    padding: 6px 12px;
+  }
+
+  .login {
+    font-size: 16px;
+    padding: 8px 12px;
+    margin-right: 2%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-bottom {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to bottom right, #8d1414 0%, #f57c1f 100%);
+    padding: 20px;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+  }
+
+  .nav-bottom.active {
+    display: flex;
+  }
+
+  .nav-bottom li {
+    margin: 10px 0;
+  }
+
+  .href {
+    font-size: 16px;
+    margin: 5px 0;
+    padding: 10px;
+    display: block;
+  }
+
+  .login {
+    font-size: 16px;
+    padding: 8px 12px;
+    margin: 10px auto;
+    width: fit-content;
+  }
+
+  .logo {
+    width: 12rem;
+  }
+
+  .navbar {
+    padding: 10px 5%;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo {
+    width: 10rem;
+  }
+
+  .href {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .login {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+
+  .navbar {
+    padding: 8px 4%;
+  }
+
+  .hamburger {
+    font-size: 20px;
+    padding: 8px;
+  }
+}
+
+.sidebar .text-center {
+  width: 100%;
+  padding: 0 5px;
+}
+
+.sidebar .fw-bold {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    overflow-x: hidden;
+  }
+
+  .sidebar .nav-link {
+    padding: 0.75rem 0.75rem;
+  }
+}
