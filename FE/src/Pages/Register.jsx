@@ -13,22 +13,19 @@ const Register = () => {
     setError("");
 
     try {
-      const response = await fetch(
-        "http://192.168.200.179:3535/api/users/register",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ name, email, password }),
-        }
-      );
+      const response = await fetch("http://localhost:3535/api/users/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, password }),
+      });
 
       const data = await response.json();
       console.log("📦 Response data:", data);
 
       if (response.ok && data.status) {
-        alert("Register Success")
+        alert("Register Success");
         navigate("/login");
       } else {
         setError(data.message || "Terjadi kesalahan saat registrasi.");
@@ -49,7 +46,11 @@ const Register = () => {
         </h1>
         <button
           className="fs-5 fw-bold text-decoration-none text-dark"
-          style={{ background: "transparent", border: "none", fontSize: "16px" }}
+          style={{
+            background: "transparent",
+            border: "none",
+            fontSize: "16px",
+          }}
           onClick={() => navigate("/")}
         >
           Home

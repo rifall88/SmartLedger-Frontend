@@ -39,7 +39,7 @@ const Schedule = () => {
           console.warn("Token expired / unauthorized");
           localStorage.removeItem("accessToken");
           localStorage.removeItem("user");
-          navigate("/login");
+          navigate("/s");
         }
         return Promise.reject(error);
       }
@@ -67,7 +67,7 @@ const Schedule = () => {
       return;
     }
     try {
-      const res = await axios.get("http://192.168.200.179:3535/api/schedules", {
+      const res = await axios.get("http://localhost:3535/api/schedules", {
         headers: { Authorization: `Bearer ${token}` },
       });
       console.log("📦 Schedules API response:", res.data); // Debug log
@@ -90,7 +90,7 @@ const Schedule = () => {
     const token = localStorage.getItem("accessToken");
     try {
       const res = await axios.post(
-        "http://192.168.200.179:3535/api/schedules",
+        "http://localhost:3535/api/schedules",
         newSchedule,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -117,7 +117,7 @@ const Schedule = () => {
     const token = localStorage.getItem("accessToken");
     try {
       const res = await axios.put(
-        `http://192.168.200.179:3535/api/schedules/${id}`,
+        `http://localhost:3535/api/schedules/${id}`,
         editData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -135,7 +135,7 @@ const Schedule = () => {
     const token = localStorage.getItem("accessToken");
     try {
       const res = await axios.delete(
-        `http://192.168.200.179:3535/api/schedules/${id}`,
+        `http://localhost:3535/api/schedules/${id}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       console.log("📦 Delete schedule response:", res.data); // Debug

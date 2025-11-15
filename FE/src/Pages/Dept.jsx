@@ -35,7 +35,7 @@ const Debt = () => {
   });
 
   const navigate = useNavigate();
-  const API_URL = "http://192.168.200.179:3535/api/debts";
+  const API_URL = "http://localhost:3535/api/debts";
 
   // ────────────── Axios Interceptor ──────────────
   useEffect(() => {
@@ -74,7 +74,7 @@ const Debt = () => {
     }
     try {
       // console.log(`📦 Fetching debts for userId: ${user.id}`);
-      const res = await axios.get("http://192.168.200.179:3535/api/debts", {
+      const res = await axios.get("http://localhost:3535/api/debts", {
         headers: { Authorization: `Bearer ${token}` },
       });
       console.log("📦 Debts API response:", res.data);
@@ -95,11 +95,9 @@ const Debt = () => {
   const handleCreateDebt = async () => {
     const token = localStorage.getItem("accessToken");
     try {
-      const res = await axios.post(
-        "http://192.168.200.179:3535/api/debts",
-        newDebt,
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
+      const res = await axios.post("http://localhost:3535/api/debts", newDebt, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       console.log("✅ Create debt response:", res.data);
       setNewDebt({
         creditor_name: "",
@@ -136,7 +134,7 @@ const Debt = () => {
     const token = localStorage.getItem("accessToken");
     try {
       const res = await axios.put(
-        `http://192.168.200.179:3535/api/debts/${id}`,
+        `http://localhost:3535/api/debts/${id}`,
         editData,
         { headers: { Authorization: `Bearer ${token}` } }
       );

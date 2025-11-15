@@ -29,7 +29,7 @@ const Expenditure = () => {
   });
 
   const navigate = useNavigate();
-  const API_URL = "http://192.168.200.179:3535/api/expenditures";
+  const API_URL = "http://localhost:3535/api/expenditures";
 
   // ────────────── Axios Interceptor ──────────────
   useEffect(() => {
@@ -68,12 +68,9 @@ const Expenditure = () => {
     }
     try {
       // console.log(`📦 Fetching expenditures for userId: ${user.id}`);
-      const res = await axios.get(
-        "http://192.168.200.179:3535/api/expenditures",
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
+      const res = await axios.get("http://localhost:3535/api/expenditures", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       console.log("📦 Expenditures API response:", res.data);
       setExpenditures(Array.isArray(res.data) ? res.data : []);
       setLoading(false);
@@ -93,7 +90,7 @@ const Expenditure = () => {
     const token = localStorage.getItem("accessToken");
     try {
       const res = await axios.post(
-        "http://192.168.200.179:3535/api/expenditures",
+        "http://localhost:3535/api/expenditures",
         newExpenditure,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -128,7 +125,7 @@ const Expenditure = () => {
     const token = localStorage.getItem("accessToken");
     try {
       const res = await axios.put(
-        `http://192.168.200.179:3535/api/expenditures/${id}`,
+        `http://localhost:3535/api/expenditures/${id}`,
         editData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
